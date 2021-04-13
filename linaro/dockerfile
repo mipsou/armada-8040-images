@@ -14,7 +14,7 @@ RUN dpkg-divert --local --rename --add /sbin/initctl &&\
 # bring in aarch64 toolchain for x86_64 hosts
 RUN mkdir -p ./build/gcc-linaro &&\
   curl -L https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz |\
-  tar -xJ --strip-components=1 -C /build/gcc-linaro
+  tar -xJ --strip-components=1 -C ./build/gcc-linaro
 
 # Create user and set perms on build tools
 RUN useradd -Md ./build -G users -s /usr/bin/bash build &&\
